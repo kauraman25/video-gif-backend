@@ -9,7 +9,7 @@ class GIFGenerator:
         draw = ImageDraw.Draw(img)
     
         try:
-            font = ImageFont.truetype("Arial.ttf", 60)  # Better readability
+            font = ImageFont.truetype("Arial.ttf", 40)  # Better readability
         except IOError:
             font = ImageFont.load_default()
     
