@@ -9,11 +9,11 @@ class GIFGenerator:
         draw = ImageDraw.Draw(img)
     
         try:
-            font = ImageFont.truetype("Arial.ttf", 40)  # Better readability
+            font = ImageFont.truetype("Arial.ttf", 60)  # Better readability
         except IOError:
             font = ImageFont.load_default()
     
-        max_chars = 40
+        max_chars = 30
         lines = []
         words = text.split()
         current_line = ""

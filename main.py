@@ -17,7 +17,7 @@ app = FastAPI(title="AI-Powered Video to GIF Generator")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # You can restrict to ["http://localhost:3000"] if needed
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -37,7 +37,7 @@ video_downloader = VideoDownloader()
 class VideoURL(BaseModel):
     url: str
     prompt: str
-    is_direct_mp4: bool = False
+    is_direct_mp4: bool 
 
 @app.get("/", response_class=HTMLResponse)
 async def index(request: Request):
@@ -60,7 +60,7 @@ async def process_youtube(data: VideoURL):
         os.makedirs(output_dir, exist_ok=True)
 
         gif_paths = []
-        for i, segment in enumerate(key_segments, start=1):  # start=1 for gif_1.gif
+        for i, segment in enumerate(key_segments, start=1):  
             gif_path = await gif_generator.create_gif_with_captions(video_path, segment, output_dir, i)
             relative_path = gif_path.replace("\\", "/")
             relative_path = "/" + relative_path.replace("static/", "static/")
@@ -94,7 +94,7 @@ async def process_upload(prompt: str = Form(...), video: UploadFile = File(...))
         os.makedirs(output_dir, exist_ok=True)
 
         gif_paths = []
-        for i, segment in enumerate(key_segments, start=1):  # start=1
+        for i, segment in enumerate(key_segments, start=1):  
             gif_path = await gif_generator.create_gif_with_captions(video_path, segment, output_dir, i)
             relative_path = gif_path.replace("\\", "/")
             relative_path = "/" + relative_path.replace("static/", "static/")
