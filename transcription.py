@@ -3,10 +3,12 @@ import requests
 import moviepy.editor as mp
 from faster_whisper import WhisperModel
 from typing import List, Dict, Any
+import yt_dlp
+
 
 class VideoDownloader:
     async def download_youtube(self, url: str, job_id: str) -> str:
-        import yt_dlp
+        
 
         upload_dir = os.path.join("static", "uploads", job_id)
         os.makedirs(upload_dir, exist_ok=True)

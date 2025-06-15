@@ -3,17 +3,17 @@ import moviepy.editor as mp
 from PIL import Image, ImageFont, ImageDraw
 import numpy as np
 
-class GIFGenerator:
+class GIF_Generator:
     def add_caption_to_frame(self, frame: np.ndarray, text: str) -> np.ndarray:
         img = Image.fromarray(frame).convert("RGBA")
         draw = ImageDraw.Draw(img)
     
         try:
-            font = ImageFont.truetype("Arial.ttf", 60)  # Better readability
+            font = ImageFont.truetype("Arial.ttf", 80)  # Better readability
         except IOError:
             font = ImageFont.load_default()
     
-        max_chars = 30
+        max_chars = 20
         lines = []
         words = text.split()
         current_line = ""
